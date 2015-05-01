@@ -1,0 +1,17 @@
+
+
+
+{% block choice_widget_expanded %}
+    {% spaceless %}
+    <div class="row">
+        {% for child in form %}
+            <div class="col-sm-3">
+                {{ form_widget(child) }}
+            <span style="color:#5c5c5c;">
+            &#32;{{ form_label(child) }}
+            </span>
+            </div>
+        {% endfor %}
+    </div>
+    {% endspaceless %}
+{% endblock choice_widget_expanded %}

@@ -1,0 +1,66 @@
+
+
+/*
+	_html native tags
+*/
+html, body { height: 100%; width: 100%; margin: 0;padding: 0; font-size: 12px; font-family: Arial,sans-serif; }
+
+
+
+
+/*
+	_commons
+*/
+.clear { clear: both;}
+.pointer { cursor: pointer;}
+
+
+
+/*
+	_theme defines (backgrounds,font colors, font size etc) 
+*/
+
+.white {color:#ffffff;}
+.black {color:#000000;}
+.orange {  color:#f60000;}
+.dark-gray { color:#585858;}
+.light-gray { color:#c2c3c5;}
+.blue { color:#0bc9f2;}
+.dark-blue { color:#0b57f2;}
+
+.f-color-1 {color:#6dc577;}
+.f-color-2 {color:#589fbb;}
+.f-color-3 { color:#fc5b3b;}
+.f-color-4 { color:#fcb13b;}
+.f-color-5 { color:#0ce1e9;}
+.f-color-6 { color:#7D7264;}
+
+.f-size-9 { font-size: 9px;}
+.f-size-10 { font-size: 10px;}
+.f-size-12 { font-size: 12px;}
+.f-size-14 { font-size: 14px;}
+.f-size-16 { font-size: 16px;}
+.f-size-18 { font-size: 18px;}
+.f-size-20 { font-size: 20px;}
+.f-size-24 { font-size: 24px;}
+.f-size-28 { font-size: 28px;}
+.f-size-30 { font-size: 30px;}
+
+.b-color-1 { background-color:#6dc577;}
+.b-color-2 { background-color:#589fbb;}
+.b-color-3 { background-color:#fc5b3b;}
+.b-color-4 { background-color:#fcb13b;}
+.b-color-5 { background-color:#0ce1e9;}
+
+
+
+
+/*
+	_browser issues
+*/
+:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+

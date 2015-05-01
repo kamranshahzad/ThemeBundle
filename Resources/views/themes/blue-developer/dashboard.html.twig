@@ -1,0 +1,179 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/dev-helper.png') }}">
+    <title> DevHelper : Dashboard</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-3.1.0/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/font-awesome-4.0.3/css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/font-mfizz-1.2/font-mfizz.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/animate.css/animate.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-overwrite.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/default-styles.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/layout-block.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/devhelper-styles.css') }}" />
+</head>
+<body>
+
+<div class="stackmenu-container">
+    <!-- stackmenu-container -->
+    {{ region('stackmenu') }}
+    <!-- @stackmenu-container -->
+</div>
+
+
+
+<div class="body-container" >
+<!-- body-container -->
+
+    <div class="topbar-container" >
+        <!-- topbar-container -->
+
+        <!-- logo-container -->
+            {{ region('logocontainer') }}
+        <!--@logo-container-->
+
+        <div class="list-container">
+            <!-- list-container -->
+            {{ region('topbar') }}
+            <!-- @list-container -->
+        </div>
+
+        <!-- @topbar-container -->
+    </div>
+
+    <div class="layout-container">
+
+        <!-- breadcrumb -->
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                <li class="active">Overview</li>
+            </ol>
+        </div>
+        <!-- @breadcrumb -->
+
+        <!-- large-tabs -->
+        <div class="submenu">
+            <h1>Dashboard</h1>
+            <div class="collapsed">
+                <a id="submenutoggle" href="#"><h1>Forms <i class="fa fa-bars"></i></h1></a>
+            </div>
+            <ul class="nav nav-tabs">
+                <li><a href="#">Recent Development</a></li>
+                <li><a href="#">Work Calender</a></li>
+                <li class="active"><a href="validation-elements.html">Current Tasks</a></li>
+                <li><a href="form-wizard.html">Peoples</a></li>
+            </ul>
+        </div>
+        <!-- @large-tabs -->
+
+
+        <!-- main-->
+        <div class="main" id="content">
+
+        </div>
+        <!-- @main-->
+
+
+
+        <!-- @layout-container -->
+    </div>
+
+
+
+
+<!-- @body-container -->
+</div>
+
+
+<script src="{{ asset('assets/vendor/jquery/jquery-1.10.2.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/jquery-ui/jquery-ui.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap-3.1.0/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap-3.1.0/js/tooltip.js') }}"></script>
+<script src="{{ asset('assets/vendor/nicescroll/jquery.nicescroll.min.js') }}"></script>
+
+<script src="{{ asset('assets/js/base/base-corejs.js') }}"></script>
+<script src="{{ asset('assets/js/base/base-jquery.js') }}"></script>
+<script src="{{ asset('assets/js/base/base-jqueryajax.js') }}"></script>
+<script src="{{ asset('assets/js/base/base-jqueryplugins.js') }}"></script>
+<script src="{{ asset('assets/js/base/base-responsive.js') }}"></script>
+<script src="{{ asset('assets/js/js-data.js') }}"></script>
+<script src="{{ asset('assets/js/main-application.js') }}"></script>
+<script>
+    jQuery(document).ready(function() {
+        jQuery('.tooltips').tooltip();
+        DeveloperApp.init();
+
+        //set scrolls
+        $("body").niceScroll({
+            cursorcolor: '#000000',
+            zindex: 999999,
+            bouncescroll: true,
+            cursoropacitymax: 0.4,
+            cursorborder: '',
+            cursorborderradius: 7,
+            cursorwidth: '7px',
+            background: 'rgba(0,0,0,.1)',
+            autohidemode: false,
+            railpadding: {top:0,right:2,left:2,bottom:0}
+        });
+
+
+        // Test menus
+        //jQuery('.nav-bracket .children').css({display: ''});
+
+        jQuery('.nav-bracket > li').hover(function(){
+            jQuery(this).addClass('nav-hover');
+        }, function(){
+            jQuery(this).removeClass('nav-hover');
+        });
+
+
+        // innerSidebar
+        $("#innerSidebar").niceScroll({
+            cursorcolor: '#000000',
+            zindex: 999999,
+            bouncescroll: true,
+            cursoropacitymax: 0.4,
+            cursorborder: '',
+            cursorborderradius: 0,
+            cursorwidth: '4px',
+            railalign: 'left',
+            railoffset: {top:60,left:0}
+        });
+        $('#innerSidebar .dropdown.open').data('closable', false);
+        $('#innerSidebar .dropdown').on({
+            "shown.bs.dropdown": function() {
+                $(this).data('closable', false);
+                // resize scrollbar
+                $("#innerSidebar").getNiceScroll().resize();
+            },
+            "click": function() {
+                $(this).data('closable', true);
+                if (!$(this).hasClass('open') && !$(this).hasClass('change-status')) {
+                    $('li.dropdown.open').removeClass('open');
+                }
+                // resize scrollbar
+                $("#innerSidebar").getNiceScroll().resize();
+            },
+            "hide.bs.dropdown": function() {
+                return $(this).data('closable');
+                // resize scrollbar
+                $("#innerSidebar").getNiceScroll().resize();
+            }
+        });
+        $('.nav .dropdown,.messages.dropdown').on('show.bs.dropdown', function(e){
+            $(this).find('.dropdown-menu').addClass('animated fadeInDown');
+        });
+
+        $('#innerSidebar .dropdown').on('show.bs.dropdown', function(e){
+            $(this).find('.dropdown-menu').addClass('animated fadeInDown');
+        });
+    });
+</script>
+</body>
+</html>	

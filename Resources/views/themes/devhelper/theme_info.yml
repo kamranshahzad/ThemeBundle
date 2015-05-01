@@ -1,0 +1,17 @@
+theme_info:
+  name: devhelper
+  description: This theme is created for developers.
+  engin: twig
+
+stylesheets:
+  all:
+   - css/layout.css
+   - css/style.css
+   - css/colors.css
+
+# Regions
+regions:
+   stackmenu: 'Header of page'
+   topbar: 'Left bar'
+   sidebar: 'Right bar'
+   content: 'Page footer Region'

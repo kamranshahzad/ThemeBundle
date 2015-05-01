@@ -1,0 +1,18 @@
+theme_info:
+  name: silverjoke
+  description: This theme is created for testing.
+  engin: twig
+
+stylesheets:
+  all:
+   - css/layout.css
+   - css/style.css
+   - css/colors.css
+
+# Regions
+regions:
+   header: 'Header of page'
+   leftbar: 'Left bar'
+   rightbar: 'Right bar'
+   footer: 'Page footer Region'
+   menubar: 'Menu bar'
